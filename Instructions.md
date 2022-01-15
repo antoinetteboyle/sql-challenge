@@ -115,28 +115,28 @@ Mockaroo, LLC. (2021). Realistic Data Generator. [https://www.mockaroo.com/](htt
 
 departments
 --
-dept_no PK int
-dept_name NULL VARCHAR(200)
+dept_no PK VARCHAR(200) 
+dept_name VARCHAR(200)
+
+employees
+--    
+emp_no PK int
+emp_title_id int FK >- titles.title_id
+birth_date VARCHAR(200)
+first_name VARCHAR(200)
+last_name VARCHAR(200)
+sex ENUM('M','F')
+hire_date VARCHAR(200)
 
 dept_emp
 --
-emp_no int FK -< employees.emp_no
-dept_no int FK -< departments.dept_no
+emp_no int FK >- employees.emp_no
+dept_no VARCHAR(200) FK >- departments.dept_no
 
 dept_manager
 --
-dept_no int FK -< departments.dept_no
-emp_no int FK -< employees.emp_no
-
-employees
---
-emp_no PK int
-emp_title int FK -< titles.title_id
-birth_date DATE
-first_name NULL VARCHAR(200)
-last_name NULL VARCHAR(200)
-sex ENUM('M','F')
-hire_date DATE
+dept_no VARCHAR(200) FK >- departments.dept_no
+emp_no int FK >- employees.emp_no
 
 salaries
 --
@@ -145,6 +145,12 @@ salary int
 
 titles
 --
-title_id PK int
+title_id PK VARCHAR(200)
 title NULL VARCHAR(200)
 
+SELECT e.emp_no, e.last_name, e.first_name, s.salary
+FROM employees As e
+JOIN salaries As s ON 
+e.emp_no = s.emp_no
+GROUP BY s.salary
+ORDER BY s.salary DESC
