@@ -11,7 +11,7 @@ Data Analysis:
 I have formulated sql queries to analyse the 8 questions. The solution can be found here [Analysis of SQL queries](/../main/EmployeeSQL/analysis_queries.sql)
 
 BONUS:
-I've imported the SQL database into Pandas and analysed whether the salary data is fake. My findings are in [Bonus SQLAlchemy](/../main/EmployeeSQL/bonus_sqlalchemy.jpynb). My employee ID number is 499942 but this name is for April Foolsday?
+I've imported the SQL database into Pandas and analysed whether the salary data is fake. My findings are in [Bonus SQLAlchemy](/../main/EmployeeSQL/bonus_sqlalchemy.ipynb). My employee ID number is 499942 but this name is for April Foolsday?
 
 
 
