@@ -148,9 +148,21 @@ titles
 title_id PK VARCHAR(200)
 title NULL VARCHAR(200)
 
-SELECT e.emp_no, e.last_name, e.first_name, s.salary
-FROM employees As e
+SELECT t.title_no, e.last_name, e.first_name, s.salary
+FROM title As t
 JOIN salaries As s ON 
-e.emp_no = s.emp_no
+t.title_no = s.title_no
 GROUP BY s.salary
 ORDER BY s.salary DESC
+
+SELECT t.title, s.salaries
+FROM salaries As s
+WHERE s.emp_no IN
+(
+SELECT e.emp_no
+FROM employees As e
+WHERE e.emp_title_id IN
+(
+SELECT t.title, t.title_id
+FROM titles As t
+));

@@ -1,6 +1,5 @@
-﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
--- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
-
+﻿
+CREATE TYPE gen_enum AS ENUM ('M','F');
 
 CREATE TABLE "departments" (
     "dept_no" VARCHAR(200) NOT NULL,
@@ -10,7 +9,6 @@ CREATE TABLE "departments" (
      )
 );
 
-CREATE TYPE gen_enum AS ENUM ('M','F')
 CREATE TABLE "employees" (
     "emp_no" int NOT NULL,
     "emp_title_id" VARCHAR(200)  NOT NULL,
@@ -41,7 +39,7 @@ CREATE TABLE "salaries" (
 
 CREATE TABLE "titles" (
     "title_id"  VARCHAR(200)   NOT NULL,
-    "title" VARCHAR(200)   NULL,
+    "title" VARCHAR(200)  NOT NULL,
     CONSTRAINT "pk_titles" PRIMARY KEY (
         "title_id"
      )
